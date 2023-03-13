@@ -27,7 +27,7 @@ public class LongMethodSmell {
                 sb.append(pair.getKey() + " = " + pair.getValue());
             }
         }
-        sb.append("Number of smelly methods = " + smellyMethods);
+        sb.append("\nNumber of smelly methods = " + smellyMethods);
         return sb.toString();
     }
 }

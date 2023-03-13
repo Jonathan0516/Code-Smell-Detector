@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Map;
 
 public class ParameterUnused {
-    public void unusedParameters(String fileName) throws IOException {
+    public String unusedParameters(String fileName) throws IOException {
 
         ParameterOperateTool pot = new ParameterOperateTool();
         MethodOperateTool mot = new MethodOperateTool();
@@ -22,6 +22,7 @@ public class ParameterUnused {
         Map<String, String> methodsMap = mot.storeMethods(fileName);
         List<String> parameters = new ArrayList();
         List<String> unusedParameters = new ArrayList();
+        StringBuilder sb = new StringBuilder();
         BufferedReader br = ReadTool.read(fileName);
         int parameterUsed = 0;
 
@@ -48,7 +49,8 @@ public class ParameterUnused {
         }
 
         for (int i = 0; i < unusedParameters.size(); i++) {
-            System.out.println("\n" + unusedParameters.get(i) + " has unused parameters!");
+            sb.append("\n" + unusedParameters.get(i) + " has unused parameters!");
         }
+        return sb.toString();
     }
 }

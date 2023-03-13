@@ -9,14 +9,14 @@ import java.util.List;
 import java.util.Map;
 
 public class MethodUnused {
-    public void unusedMethods(String fileName, String fileName2) throws IOException {
+    public String unusedMethods(String fileName, String fileName2) throws IOException {
 
         MethodOperateTool mot = new MethodOperateTool();
         Map<String,String> methods1 = mot.storeMethods(fileName);
         Map<String,String> methods2 = mot.storeMethods(fileName2);
         List<String> unusedMethods = new ArrayList();
+        StringBuilder sb = new StringBuilder();
         int numUnusedMethods = 0;
-
         int usedInFirstClass = 0;
         int usedInSecondClass = 0;
 
@@ -52,13 +52,14 @@ public class MethodUnused {
         }
 
         if(unusedMethods.size() > 0) {
-            System.out.println("unused methods: ");
+            sb.append("unused methods: ");
             for (int i = 0; i < unusedMethods.size(); i++) {
                 System.out.println(unusedMethods.get(i));
             }
         }
         else {
-            System.out.println("No unused methods");
+            sb.append("No unused methods");
         }
+        return sb.toString();
     }
 }

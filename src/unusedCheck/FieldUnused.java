@@ -10,12 +10,13 @@ import java.util.List;
 import java.util.Map;
 
 public class FieldUnused {
-    public void unusedFields(String fileName) throws IOException {
+    public String unusedFields(String fileName) throws IOException {
         MethodOperateTool mot = new MethodOperateTool();
         FieldOperateTool fot = new FieldOperateTool();
         List<String> fields = fot.getFields(fileName);
         Map<String,String> methods = mot.storeMethods(fileName);
         List<String> unusedFields = new ArrayList();
+        StringBuilder sb = new StringBuilder();
         int NumUnusedFields = 0;
         int used = 0;
 
@@ -35,13 +36,14 @@ public class FieldUnused {
         }
 
         if(unusedFields.size() > 0) {
-            System.out.println("\n unused fields: ");
+            sb.append("\n unused fields: ");
             for (int i = 0; i < unusedFields.size(); i++) {
-                System.out.println(unusedFields.get(i));
+                sb.append(unusedFields.get(i));
             }
         }
         else {
-            System.out.println("\n No unused fields");
+            sb.append("\n No unused fields");
         }
+        return sb.toString();
     }
 }
