@@ -39,7 +39,7 @@ public class Chat4 {
                 .connectTimeout(300)
                 .readTimeout(300)
                 .writeTimeout(300)
-//                .apiKey("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")
+                .apiKey("**")
                 .proxy(proxy)
                 .apiHost("https://api.openai.com/")
                 .build();
